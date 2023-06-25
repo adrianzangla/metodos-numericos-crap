@@ -1,9 +1,13 @@
-function test
-td = 45
-g = @(t) if t<td/2 return t else return -t endif;
+% Example usage
+A = [2, -1; -1, 4];  % Your input matrix
+guess = [1; 1];      % Initial guess for the eigenvector
+max_iterations = 100;     % Maximum number of iterations
+error_tolerance = 1e-6;   % Error tolerance for convergence
 
-g(3)
-g(60)
-    
+% Call the inverse power method
+[smallest_eigenvalue, smallest_eigenvector] = inverse_power_method(A, guess, max_iterations, error_tolerance);
 
-endfunction
+% Display the results
+fprintf('Smallest eigenvalue: %.4f\n', smallest_eigenvalue);
+fprintf('Associated eigenvector: [%.4f, %.4f]\n', smallest_eigenvector(1), smallest_eigenvector(2));
+
